@@ -54,7 +54,7 @@ function renderElement(news) {
     const midContainer = document.getElementById('mid');
     console.log(MID)
     midContainer.innerHTML = `
-    <h1>&nbsp;</h1>
+    <h2>&nbsp;</h2>
 `;
     MID.forEach(({ mediaImage, comment, _id: id }) => {
         const newsContainer = document.createElement('div');

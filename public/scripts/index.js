@@ -14,7 +14,7 @@ function redirect(id) {
     }
 }
 
-function renderElement(elementId, news) {
+function renderElement(news) {
     const { TOP_STORY, MOST_POPULAR } = news;
 
     const topStoryContainer = document.getElementById('top-story');
@@ -54,7 +54,7 @@ function renderElement(elementId, news) {
 
 async function main() {
     const { news } = await getNews();
-    renderElement('container', news);
+    renderElement(news);
 }
 
 main()

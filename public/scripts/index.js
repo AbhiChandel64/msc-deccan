@@ -15,7 +15,7 @@ function redirect(id) {
 }
 
 function renderElement(news) {
-    const { TOP_STORY, MOST_POPULAR } = news;
+    const { TOP_STORY, MOST_POPULAR, MID } = news;
 
     const topStoryContainer = document.getElementById('top-story');
     topStoryContainer.innerHTML = `
@@ -44,11 +44,28 @@ function renderElement(news) {
         newsContainer.onclick = redirect(id);
 
         newsContainer.innerHTML = `
-            <img class="topStoryImage" src=${mediaImage} alt="">
+            <img class="mostPopularImage" src=${mediaImage} alt="">
             <h3>${title}</h3>
         `;
 
         mostPopularStoryContainer.appendChild(newsContainer);
+    });
+
+    const midContainer = document.getElementById('mid');
+    console.log(MID)
+    midContainer.innerHTML = `
+    <h1>&nbsp;</h1>
+`;
+    MID.forEach(({ mediaImage, comment, _id: id }) => {
+        const newsContainer = document.createElement('div');
+        newsContainer.className = "midNewsContainer";
+        newsContainer.onclick = redirect(id);
+        newsContainer.innerHTML = `
+            <img class="midImage" src=${mediaImage} alt="">
+            <p>${comment}</p>
+        `;
+
+        midContainer.appendChild(newsContainer);
     });
 }
 

@@ -4,10 +4,28 @@
   box-sizing: border-box;
 }
 
+.container {
+  padding: 10px;
+  display: flex;
+}
+
 .topStoryImage {
-  height: 50px;
+  height: 300px;
 }
 
 .news {
   cursor: pointer;
+}
+
+.topNewsContainer {
+  border: 1px solid black;
+  margin-bottom: 20px;
+  padding: 40px;
+  margin-right: 20px;
+}
+
+.mostPopularNewsContainer {
+  border: 1px solid black;
+  margin-bottom: 20px;
+  padding: 40px;
 }

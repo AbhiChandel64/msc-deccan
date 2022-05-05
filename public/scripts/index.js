@@ -8,37 +8,47 @@ async function getNews() {
         });
 }
 
-function redirect(url) {
-    window.location.href = url;
+function redirect(id) {
+    return function () {
+        window.location.href = `search.html?id=${id}`;
+    }
 }
 
 function renderElement(elementId, news) {
-    const container = document.getElementById(elementId);
-    Object.keys(news).map(category => {
-        const allNews = news[category];
-        const box = document.createElement('div');
+    const { TOP_STORY, MOST_POPULAR } = news;
 
-        const heading = document.createElement('h1');
-        heading.textContent = category;
-
+    const topStoryContainer = document.getElementById('top-story');
+    topStoryContainer.innerHTML = `
+        <h1>Top Stories</h1>
+    `;
+    TOP_STORY.forEach(({ title, mediaImage, comment, _id: id }) => {
         const newsContainer = document.createElement('div');
-        allNews.map(({ title, mediaImage, url }) => {
-            const newsC = document.createElement('div');
-            newsC.className = "news";
-            newsC.innerHTML = `
-                <img class="topStoryImage" src=${mediaImage} alt="">
-                <h3>${title}</h3>
-            `;
-            newsC.onclick = () => redirect(url);
+        newsContainer.className = "topNewsContainer";
+        newsContainer.onclick = redirect(id);
+        newsContainer.innerHTML = `
+            <img class="topStoryImage" src=${mediaImage} alt="">
+            <h3>${title}</h3>
+            <p>${comment}</p>
+        `;
 
-            newsContainer.appendChild(newsC);
-        });
+        topStoryContainer.appendChild(newsContainer);
+    });
 
+    const mostPopularStoryContainer = document.getElementById('most-popular');
+    mostPopularStoryContainer.innerHTML = `
+        <h1>Most Popular</h1>
+    `;
+    MOST_POPULAR.forEach(({ title, mediaImage, _id: id }) => {
+        const newsContainer = document.createElement('div');
+        newsContainer.className = "mostPopularNewsContainer";
+        newsContainer.onclick = redirect(id);
 
-        box.appendChild(heading);
-        box.appendChild(newsContainer);
-        container.appendChild(box);
+        newsContainer.innerHTML = `
+            <img class="topStoryImage" src=${mediaImage} alt="">
+            <h3>${title}</h3>
+        `;
 
+        mostPopularStoryContainer.appendChild(newsContainer);
     });
 }
 

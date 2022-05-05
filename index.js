@@ -57,6 +57,15 @@ app.get("/news", async (req, res) => {
     }
 });
 
+app.get("/news/:id", async (req, res) => {
+    try {
+        const news = await News.findById(req.params.id).lean().exec();
+        return res.status(200).send({ news });
+    } catch (err) {
+        return res.status(500).send({ message: err.message });
+    }
+});
+
 
 app.listen(5000, async () => {
     try {

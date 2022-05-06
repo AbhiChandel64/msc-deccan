@@ -2,7 +2,7 @@
 
 ## Steps to run locally
 ```sh
-git clone git@github.com:AbhiChandel64/msc-deccan.git
+git clone https://github.com/AbhiChandel64/msc-deccan.git
 cd msc-deccan
 npm i
 npm run start

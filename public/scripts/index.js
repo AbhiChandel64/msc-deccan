@@ -15,7 +15,7 @@ function redirect(id) {
 }
 
 function renderElement(news) {
-    const { TOP_STORY, MOST_POPULAR, MID } = news;
+    const { TOP_STORY, MOST_POPULAR, MID, ENTERTAINMENT, WORLD } = news;
 
     const topStoryContainer = document.getElementById('top-story');
     topStoryContainer.innerHTML = `
@@ -66,6 +66,34 @@ function renderElement(news) {
         `;
 
         midContainer.appendChild(newsContainer);
+    });
+
+    const entertainmentContainer = document.getElementById('entertainment-story');
+    ENTERTAINMENT.forEach(({ title, mediaImage, _id: id }) => {
+        const newsContainer = document.createElement('div');
+        console.log(title)
+        newsContainer.className = "entertainmentNewsContainer";
+        newsContainer.onclick = redirect(id);
+        newsContainer.innerHTML = `
+            <img class="entertainmentImage" src=${mediaImage} alt="">
+            <h3>${title}</h3>
+        `;
+
+        entertainmentContainer.appendChild(newsContainer);
+    });
+
+    const worldContainer = document.getElementById('world-story');
+    WORLD.forEach(({ title, mediaImage, _id: id }) => {
+        const newsContainer = document.createElement('div');
+        console.log(title)
+        newsContainer.className = "worldewsContainer";
+        newsContainer.onclick = redirect(id);
+        newsContainer.innerHTML = `
+            <img class="worldImage" src=${mediaImage} alt="">
+            <h3>${title}</h3>
+        `;
+
+        worldContainer.appendChild(newsContainer);
     });
 }
 

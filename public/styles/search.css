@@ -18,6 +18,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  border-bottom: 4px solid black;
+  padding-bottom: 20px;
 }
 
 #choice {
@@ -25,6 +27,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
+  border-bottom: 1px solid black;
 }
 #choice > p:hover {
   text-decoration: underline;
@@ -35,10 +38,11 @@
   display: flex;
   justify-content: space-between;
 }
-p {
-  width: 800px;
-  color: rgb(138, 136, 136);
+#space {
+  width: 900px;
+  color: rgb(107, 105, 105);
   line-height: 30px;
+  word-spacing: 5px;
 }
 
 .searchContainer {
@@ -47,19 +51,42 @@ p {
 }
 
 .searchMidNewsContainer {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   width: 200px;
-  margin-left: 40px;
+  margin-left: 20px;
+  border-bottom: 1px solid rgb(131, 129, 129);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .searchMidImage {
   width: 200px;
+  box-shadow: rgb(153, 153, 153, 0.7) 2px 2px 2px 2px;
 }
 
 .searchTopStoryImage {
+  border-radius: 5px;
   width: 600px;
+  box-shadow: rgb(153, 153, 153, 0.7) 3px 3px 3px 3px ;
+}
+h2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 p {
+  margin-top: 15px;
   width: 100%;
+  margin-bottom: 15px;
+}
+#container{
+  border: 1px solid rgb(158, 154, 154);
+  padding-left: 10px;
+  padding-top: 10px;
+  box-shadow: rgb(153, 153, 153,0.7) 3px 3px 3px 3px;
+  margin-bottom: 30px;
+}
+.change{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
 }

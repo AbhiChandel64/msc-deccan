@@ -85,6 +85,10 @@ async function main() {
     })
 
 }
+async function main() {
+    const { news } = await getNews();
+    renderElement(news);
+}
 
 
 main()

@@ -19,6 +19,12 @@ async function getNews() {
         });
 }
 
+function redirect(id) {
+    return function () {
+        window.location.href = `search.html?id=${id}`;
+    }
+}
+
 async function main() {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const newsId = urlSearchParams.get('id');
@@ -64,17 +70,14 @@ async function main() {
             </p>
             `;
     });
-    function redirect(id) {
-        return function () {
-            window.location.href = `search.html?id=${id}`;
-        }
-    }
+
 
     getNews().then(({ MID }) => {
         const midContainer = document.getElementById('mid');
-        MID.forEach(({ mediaImage, comment }) => {
+        MID.forEach(({ mediaImage, comment, _id: id }) => {
             const newsContainer = document.createElement('div');
             newsContainer.className = "searchMidNewsContainer";
+            newsContainer.onclick = redirect(id);
             newsContainer.innerHTML = `
                 <img class="searchMidImage" src=${mediaImage} alt="">
                 <p>${comment}</p>
